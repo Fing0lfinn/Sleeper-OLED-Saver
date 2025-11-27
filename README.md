@@ -13,9 +13,6 @@ Sleeper is a modern Windows utility application designed specifically to protect
 * **countdown Live Countdown:** Shows a visual countdown timer indicating exactly when the screen will sleep.
 * **background Minimize Mode:** Can be minimized to the taskbar while keeping the monitoring active in the background.
 
-## 📸 Screenshots
-
-![App Screenshot](PLACEHOLDER_FOR_SCREENSHOT_LINK)
 
 ## 📥 Installation
 
