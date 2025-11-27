@@ -1,0 +1,116 @@
+﻿<Window x:Class="Sleeper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sleeper"
+        mc:Ignorable="d"
+        Title="Sleeper" Height="500" Width="700"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+
+    <Border Background="#161B2E" CornerRadius="10" BorderThickness="1" BorderBrush="#2C3448">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Sleeper" Foreground="White" FontSize="18" FontWeight="Bold" 
+                       VerticalAlignment="Center" Margin="40,0,0,0"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+
+                <Button Width="30" Height="30" Background="Transparent" BorderThickness="0" Cursor="Hand"
+                        Click="MinimizeButton_Click" Margin="0,0,5,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="_" Foreground="#B0B8D0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30" Height="30" Background="Transparent" BorderThickness="0" Cursor="Hand"
+                        Click="CloseButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="X" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <Border Grid.Row="1" Background="#1E2538" Margin="40,0,40,40" CornerRadius="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Source="/Assets/icon.png" Width="418" Height="120" 
+                           HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Grid.RowSpan="2"/>
+
+                    <TextBlock Grid.Row="1" Text="An End to Burn-in" Foreground="White" FontSize="28" FontWeight="Bold" 
+                               HorizontalAlignment="Left" Margin="40,10,0,5"/>
+
+                    <TextBlock Grid.Row="2" 
+                               Text="Sleeper monitors your keyboard and mouse.&#x0a;Enter the idle time below and click Start." 
+                               Foreground="#B0B8D0" FontSize="14" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="40,0,40,0"/>
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="40,20,0,0">
+
+                        <StackPanel x:Name="SettingsPanel" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Timeout (sec):" Foreground="#B0B8D0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <TextBox x:Name="TxtInputSeconds" Text="15" 
+                                     Width="50" Height="25"
+                                     Background="#161B2E" Foreground="White" BorderBrush="#2C3448"
+                                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                     FontWeight="Bold" MaxLength="4"
+                                     TextChanged="TxtInputSeconds_TextChanged"/>
+                        </StackPanel>
+
+                        <TextBlock x:Name="TxtTimer" 
+                                   Text="Waiting..." 
+                                   Foreground="#FF5555" 
+                                   FontSize="20" 
+                                   FontWeight="Bold"
+                                   Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="4" Margin="40,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Button x:Name="BtnStart" Click="StartButton_Click" Width="120" Height="40" Cursor="Hand" Visibility="Visible">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="White" CornerRadius="20">
+                                        <TextBlock Text="Start" Foreground="#1E2538" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button x:Name="BtnStop" Click="StopButton_Click" Width="120" Height="40" Cursor="Hand" Visibility="Collapsed">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="Transparent" BorderBrush="White" BorderThickness="1" CornerRadius="20">
+                                        <TextBlock Text="Stop" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
